@@ -1,5 +1,13 @@
+import os
 import sublime
 import sublime_plugin
+
+
+def trim_leading_charater(fileName, character):
+    if len( fileName ) > 0 and fileName[0] == character:
+        fileName = fileName.replace( character, '', 1 )
+    return fileName
+
 
 class CopyWithLineNumbersCommand(sublime_plugin.TextCommand):
     def run(self, edit):
@@ -25,7 +33,7 @@ class CopyWithLineNumbersCommand(sublime_plugin.TextCommand):
             else:
                 outputFileName = "<unsaved>"
 
-            output = "File: " + outputFileName + "\n"
+            output = "File: " + outputFileName.replace('\\', '/') + "\n"
         else:
             output = "" # no header
 
@@ -67,6 +75,8 @@ class CopyWithLineNumbersCommand(sublime_plugin.TextCommand):
     def removeAbsolutePath(fileName, folderList):
         for folder in folderList:
             if folder in fileName:
-                fileName = fileName.replace(folder, '')
+                fileName = fileName.replace(os.path.dirname(folder), '')
+                fileName = trim_leading_charater(fileName, '/')
+                fileName = trim_leading_charater(fileName, '\\')
             break
         return fileName
