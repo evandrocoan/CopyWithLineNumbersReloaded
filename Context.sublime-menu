@@ -1,3 +1,20 @@
 [
-
+    {
+        "caption": "Project Specific",
+        "id": "2_row",
+        "children":
+        [
+            { "caption": "-", "id": "1_row" },
+            { "caption": "-", "id": "2_row" },
+            { "caption": "Copy With Line Numbers", "command": "copy_with_line_numbers" },
+            { "caption": "-", "id": "3_row" },
+            { "caption": "-", "id": "4_row" },
+            { "caption": "-", "id": "5_row" },
+            { "caption": "-", "id": "6_row" },
+            { "caption": "-", "id": "7_row" },
+            { "caption": "-", "id": "8_row" },
+            { "caption": "-", "id": "9_row" },
+            { "caption": "-", "id": "10_row" },
+        ]
+    },
 ]
