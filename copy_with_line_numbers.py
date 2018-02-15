@@ -42,7 +42,7 @@ class CopyWithLineNumbersCommand(sublime_plugin.TextCommand):
             # To print all the line numbers with the same length
             largestLineNumber = self.getLineNumber(selections[-1].end())
             largestLineNumberLength = len(str(largestLineNumber))
-            outputLineFormatString = "%0" + str(largestLineNumberLength) + "d: %s\n"
+            outputLineFormatString = "%" + str(largestLineNumberLength) + "d: %s\n"
         else:
             outputLineFormatString = "%d: %s\n"
 
