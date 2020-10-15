@@ -74,8 +74,10 @@ class CopyWithLineNumbersCommand(sublime_plugin.TextCommand):
     @staticmethod
     def removeAbsolutePath(fileName, folderList):
         for folder in folderList:
-            if folder in fileName:
-                fileName = fileName.replace(os.path.dirname(folder), '')
+            # print("folder", folder)
+            dirname = os.path.dirname(folder);
+            if folder in fileName and dirname != "/" and dirname != "\\":
+                fileName = fileName.replace(dirname, '')
                 fileName = trim_leading_charater(fileName, '/')
                 fileName = trim_leading_charater(fileName, '\\')
             break
